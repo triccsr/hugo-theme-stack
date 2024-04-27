@@ -2,24 +2,29 @@
   position: relative;
   margin: 1em 0;
   padding: 0 .75em;
-  background-color: map-get($admonition-background-color-map, 'note');
   border-left: .25em solid map-get($admonition-color-map, 'note');
+
   overflow: auto;
+  //border-radius: 10px;
+  // border-top-right-radius: 6px;
+  // border-bottom-right-radius: 6px;
 
   .admonition-title {
-    font-weight: bold;
+    font-weight: 700;
     margin: 0 -0.75em;
     padding: .25em 1.8em;
-    border-bottom: 1px solid map-get($admonition-background-color-map, 'note');
-    background-color: opacify(map-get($admonition-background-color-map, 'note'), 0.15);
-  }
-
-  &.open .admonition-title {
-    background-color: map-get($admonition-background-color-map, 'note');
+    color: map-get($admonition-color-map, 'note');
   }
 
   .admonition-content {
     padding: .5em 0;
+    padding-top:0;
+  }
+
+  svg.icon {
+    display: inline-block;
+    width: 1.5em;
+    vertical-align: -0.125em;
   }
 
   span.icon > svg {
@@ -38,25 +43,13 @@
 
   @each $type, $color in $admonition-color-map {
     &.#{$type} {
-      border-left-color: $color;
+      border-color: $color;
 
       span.icon > svg {
         color: $color;
       }
-    }
-  }
-
-  @each $type, $color in $admonition-background-color-map {
-    &.#{$type} {
-      background-color: $color;
-
       .admonition-title {
-        border-bottom-color: $color;
-        background-color: opacify($color, 0.15);
-      }
-
-      &.open .admonition-title {
-        background-color: $color;
+        color: $color;
       }
     }
   }

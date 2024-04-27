@@ -20,7 +20,7 @@
             <span class="icon">
                 {{- partial "helper/icon.html" (index $iconMap $type | default (index $iconMap "note")) -}}
             </span>
-            {{- .Get "title" | default $type -}}
+            {{- .Get "title" | default $type|humanize -}}
         </div>
         <div class="details-content">
             <div class="admonition-content">
@@ -35,7 +35,7 @@
             <span class="icon">
                 {{- partial "helper/icon.html" (index $iconMap $type | default (index $iconMap "note")) -}}
             </span>
-            {{ .Get 1 | default $type }}
+            {{ .Get 1 | default $type|humanize }}
         </div>
         <div class="details-content">
             <div class="admonition-content">
