@@ -153,13 +153,18 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 // ========== Admonition ========== //
 // Color map of the admonition
 $admonition-color-map: (
-  'note': #448aff,
+  'note': #1f6feb,
+  'tip': #229b3a,
+  'important':#8e54fa,
+  'warning':#c98602,
+  'caution':#da3633,
+//   'note': #448aff,
   'abstract': #00b0ff,
   'info': #00b8d4,
-  'tip': #00bfa5,
+//   'tip': #00bfa5,
   'success': #00c853,
   'question': #64dd17,
-  'warning': #ff9100,
+//   'warning': #ff9100,
   'failure': #ff5252,
   'danger': #ff1744,
   'bug': #f50057,

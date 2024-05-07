@@ -1,0 +1,6 @@
+<script type="module">
+    const colorSchemeKey = 'StackColorScheme';
+    let colorTheme=localStorage.getItem(colorSchemeKey)== 'dark'?'dark':"default";
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true,theme:colorTheme});
+</script>
