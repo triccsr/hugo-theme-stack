@@ -1,26 +1,11 @@
 {{- $inner := .Inner | .Page.RenderString -}}
 
-{{- $iconMap := dict "note" "admonition-note" -}}
-{{- $iconMap  = dict "abstract" (dict "Style" "solid" "Icon" "list-ul") | merge $iconMap -}}
-{{- $iconMap  = dict "info" "admonition-info" | merge $iconMap -}}
-{{- $iconMap  = dict "tip" "admonition-tip" | merge $iconMap -}}
-{{- $iconMap  = dict "important" "admonition-important" | merge $iconMap -}}
-{{- $iconMap  = dict "success" (dict "Style" "solid" "Icon" "check-circle") | merge $iconMap -}}
-{{- $iconMap  = dict "question" (dict "Style" "solid" "Icon" "question-circle") | merge $iconMap -}}
-{{- $iconMap  = dict "warning" "admonition-warning" | merge $iconMap -}}
-{{- $iconMap  = dict "caution" "admonition-caution" | merge $iconMap -}}
-{{- $iconMap  = dict "failure" (dict "Style" "solid" "Icon" "times-circle") | merge $iconMap -}}
-{{- $iconMap  = dict "danger" "admonition-danger" | merge $iconMap -}}
-{{- $iconMap  = dict "bug" "admonition-bug" | merge $iconMap -}}
-{{- $iconMap  = dict "example" (dict "Style" "solid" "Icon" "list-ol") | merge $iconMap -}}
-{{- $iconMap  = dict "quote" (dict "Style" "solid" "Icon" "quote-right") | merge $iconMap -}}
-
 {{- if .IsNamedParams -}}
     {{- $type := .Get "type" | default "note" -}}
     <div class="details admonition {{ $type }}">
         <div class="details-summary admonition-title">
             <span class="icon">
-                {{- partial "helper/icon.html" (index $iconMap $type | default (index $iconMap "note")) -}}
+                {{- partial "helper/icon.html" ((print "admonition-" $type) | default (print "admonition-" "note")) -}}
             </span>
             {{- .Get "title" | default ($type|humanize) -}}
         </div>
@@ -35,7 +20,7 @@
     <div class="details admonition {{ $type }}">
         <div class="details-summary admonition-title">
             <span class="icon">
-                {{- partial "helper/icon.html" (index $iconMap $type | default (index $iconMap "note")) -}}
+                {{- partial "helper/icon.html" ((print "admonition-" $type) | default (print "admonition-" "note")) -}}
             </span>
             {{ .Get 1 | default ($type|humanize) }}
         </div>
