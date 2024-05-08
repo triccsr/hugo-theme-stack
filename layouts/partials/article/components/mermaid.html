@@ -2,5 +2,17 @@
     const colorSchemeKey = 'StackColorScheme';
     let colorTheme=localStorage.getItem(colorSchemeKey)== 'dark'?'dark':"default";
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true,theme:colorTheme});
+    // mermaid.initialize({ startOnLoad: true,theme:colorTheme});
+    mermaid.initialize({
+        startOnLoad: true,
+        theme: 'base',
+        themeVariables: {
+            'primaryColor': '#aaddaa',
+            'primaryTextColor': '#0077dd',
+            'primaryBorderColor': '#884400',
+            'lineColor': '#ee77cc',
+            'secondaryColor': '#eebb88',
+            'tertiaryColor': '#ccc'
+        }
+    });
 </script>
