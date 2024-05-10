@@ -2,7 +2,7 @@
   position: relative;
   margin: 1em 0;
   padding: 0 .75em;
-  border-left: .25em solid map-get($admonition-color-map, 'note');
+  border-left: var(--blockquote-border-size) solid map-get($admonition-color-map, 'note');
 
   overflow: auto;
   //border-radius: 10px;
