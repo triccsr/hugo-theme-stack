@@ -1,0 +1,32 @@
+{{ $emojis := dict
+    "caution" ":exclamation:"
+    "important" ":information_source:"
+    "note" ":information_source:"
+    "tip" ":bulb:"
+    "warning" ":information_source:"
+  }}
+  
+  {{ if eq .Type "alert" }}
+    <div class="details admonition {{ .AlertType }}">
+      <div class="details-summary admonition-title">
+        <span class="icon">
+          {{- partial "helper/icon.html" ((print "admonition-" .AlertType) | default (print "admonition-" "note")) -}}
+        </span>
+        {{ with .AlertTitle }}
+          {{ . }}
+        {{ else }}
+          {{ or (i18n .AlertType) (title .AlertType) }}
+        {{ end }}
+      </div>
+      <div class="details-content">
+        <div class="admonition-content">
+            {{ .Text }}
+        </div>
+    </div>
+      
+    </div>
+  {{ else }}
+    <blockquote>
+      {{ .Text }}
+    </blockquote>
+  {{ end }}

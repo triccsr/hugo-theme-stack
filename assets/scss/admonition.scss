@@ -19,6 +19,9 @@
   .admonition-content {
     padding: .5em 0;
     padding-top:0;
+    & > p {
+      margin: 0 0;
+    }
   }
 
   svg.icon {
