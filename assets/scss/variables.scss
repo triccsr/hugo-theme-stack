@@ -1,4 +1,6 @@
 $defaultTagBackgrounds: #8ea885, #df7988, #0177b8, #ffb900, #6b69d6;
+// $defaultTagBackgrounds: #0d2c55, #df7988, #0177b8, #ffb900, #6b69d6;
+
 $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 
 /*
@@ -11,12 +13,13 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
         --main-top-padding: 50px;
     }
 
-    --body-background: #f5f5fa;
+    --body-background: #dddddd;
 
-    --accent-color: #34495e;
-    --accent-color-darker: #2c3e50;
+    --accent-color: #21364b;
+    --accent-color-darker: #1b2a3a;
     --accent-color-text: #fff;
-    --body-text-color: #707070;
+    // --body-text-color: #707070;
+    --body-text-color: #404854;
 
     --tag-border-radius: 4px;
 
@@ -24,6 +27,8 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 
     --scrollbar-thumb: hsl(0, 0%, 85%);
     --scrollbar-track: var(--body-background);
+
+
 
     &[data-scheme="dark"] {
         --body-background: #303030;
@@ -33,6 +38,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
         --body-text-color: rgba(255, 255, 255, 0.7);
         --scrollbar-thumb: hsl(0, 0%, 40%);
         --scrollbar-track: var(--body-background);
+
     }
 }
 
@@ -51,13 +57,13 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 *   Card style
 */
 :root {
-    --card-background: #fff;
+    --card-background: #f0f0f0;
     --card-background-selected: #eaeaea;
 
-    --card-text-color-main: #000;
+    --card-text-color-main: #222528;
     --card-text-color-secondary: #747474;
     --card-text-color-tertiary: #767676;
-    --card-separator-color: rgba(218, 218, 218, 0.5);
+    --card-separator-color: rgba(190, 192, 204, 0.5);
 
     --card-border-radius: 10px;
 
@@ -106,7 +112,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 */
 :root {
     --blockquote-border-size: 4px;
-    --blockquote-background-color: rgb(248 248 248);
+    --blockquote-background-color: #dddddd;
 
     --heading-border-size: 4px;
 
