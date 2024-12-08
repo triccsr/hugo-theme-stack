@@ -124,7 +124,7 @@
         }
 
         li {
-            margin: 15px 0 15px 20px;
+            margin: 8px 0 8px 12px;
             padding: 5px;
 
             & > ol,
@@ -158,13 +158,13 @@
         // Support up to 6 levels of indentation for lists in ToCs
         @for $i from 0 to 5 {
             & > ul #{repeat("> li > ul", $i)} > li.active-class > a {
-                $n: 25 + $i * 35;
+                $n: 17 + $i * 27;
                 margin-left: calc(-#{$n}px - 1em);
                 padding-left: calc(#{$n}px + 1em - var(--heading-border-size));
             }
 
             & > ol #{repeat("> li > ol", $i)} > li.active-class > a {
-                $n: 9 + $i * 35;
+                $n: 1 + $i * 27;
                 margin-left: calc(-#{$n}px - 1em);
                 padding-left: calc(#{$n}px + 1em - var(--heading-border-size));
                 display: block;
