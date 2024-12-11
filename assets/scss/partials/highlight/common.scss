@@ -207,7 +207,7 @@
 
 /* Literal */
 .chroma .l {
-    color: #ae81ff;
+    color: $number-color;
 }
 
 /* LiteralDate */
@@ -252,7 +252,7 @@
 
 /* LiteralStringEscape */
 .chroma .se {
-    color: #ae81ff;
+    color: $number-color;
 }
 
 /* LiteralStringHeredoc */
@@ -287,37 +287,37 @@
 
 /* LiteralNumber */
 .chroma .m {
-    color: #ae81ff;
+    color: $number-color;
 }
 
 /* LiteralNumberBin */
 .chroma .mb {
-    color: #ae81ff;
+    color: $number-color;
 }
 
 /* LiteralNumberFloat */
 .chroma .mf {
-    color: #ae81ff;
+    color: $number-color;
 }
 
 /* LiteralNumberHex */
 .chroma .mh {
-    color: #ae81ff;
+    color: $number-color;
 }
 
 /* LiteralNumberInteger */
 .chroma .mi {
-    color: #ae81ff;
+    color: $number-color;
 }
 
 /* LiteralNumberIntegerLong */
 .chroma .il {
-    color: #ae81ff;
+    color: $number-color;
 }
 
 /* LiteralNumberOct */
 .chroma .mo {
-    color: #ae81ff;
+    color: $number-color;
 }
 
 /* Operator */
