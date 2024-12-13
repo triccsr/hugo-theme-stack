@@ -171,7 +171,8 @@ $admonition-color-map: (
 [data-scheme="light"] {
     --pre-text-color: #272822;
     --pre-background-color: #fafafa;
-    @import "partials/highlight/light.scss";
+    // @import "partials/highlight/light.scss";
+    @import "partials/highlight/catppuccin-latte.scss";
 }
 
 [data-scheme="dark"] {
