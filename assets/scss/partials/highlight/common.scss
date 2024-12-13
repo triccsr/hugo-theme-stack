@@ -82,7 +82,7 @@
 
 /* KeywordNamespace */
 .chroma .kn {
-    color: #f92672;
+    color: $operator-color;
 }
 
 /* KeywordPseudo */
@@ -177,7 +177,7 @@
 
 /* NameTag */
 .chroma .nt {
-    color: #f92672;
+    color: $operator-color;
 }
 
 /* NameVariable */
@@ -322,12 +322,12 @@
 
 /* Operator */
 .chroma .o {
-    color: #f92672;
+    color: $operator-color;
 }
 
 /* OperatorWord */
 .chroma .ow {
-    color: #f92672;
+    color: $operator-color;
 }
 
 /* Punctuation */
@@ -337,37 +337,37 @@
 
 /* Comment */
 .chroma .c {
-    color: #75715e;
+    color: $comment-color;
 }
 
 /* CommentHashbang */
 .chroma .ch {
-    color: #75715e;
+    color: $comment-color;
 }
 
 /* CommentMultiline */
 .chroma .cm {
-    color: #75715e;
+    color: $comment-color;
 }
 
 /* CommentSingle */
 .chroma .c1 {
-    color: #75715e;
+    color: $comment-color;
 }
 
 /* CommentSpecial */
 .chroma .cs {
-    color: #75715e;
+    color: $comment-color;
 }
 
 /* CommentPreproc */
 .chroma .cp {
-    color: #75715e;
+    color: $comment-color;
 }
 
 /* CommentPreprocFile */
 .chroma .cpf {
-    color: #75715e;
+    color: $comment-color;
 }
 
 /* Generic */
@@ -376,7 +376,7 @@
 
 /* GenericDeleted */
 .chroma .gd {
-    color: #f92672;
+    color: $operator-color;
 }
 
 /* GenericEmph */
@@ -412,7 +412,7 @@
 
 /* GenericSubheading */
 .chroma .gu {
-    color: #75715e;
+    color: $comment-color;
 }
 
 /* GenericTraceback */

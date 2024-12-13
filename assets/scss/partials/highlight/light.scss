@@ -11,13 +11,15 @@
 // $name-color: #75af00;
 // $literal-color: #d88200;
 
-$color: #272822;
-$background-color: #fafafa;
+$color: #444444;
+$background-color: #f5f5f5;
 $error-color: #960050;
-$keyword-color: #0055aa;
-$text-color: #111111;
-$name-color: #007733;
-$literal-color: #d88200;
-$number-color: #770088;
+$keyword-color: #0000ff;
+$text-color: #333333;
+$name-color: #805000;
+$literal-color: #a31515;
+$number-color: #007030;
+$operator-color: #885577;
+$comment-color: #75715e;
 
 @import "common.scss";
