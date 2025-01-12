@@ -42,10 +42,10 @@
         //         }
         //     }
         // }
-        .article-category a {
-            background: var(--accent-color);
-            color: var(--accent-color-text);
-        }
+        // .article-category a {
+        //     background: var(--accent-color);
+        //     color: var(--accent-color-text);
+        // }
     }
 }
 
@@ -83,6 +83,7 @@
     line-height: 1.5;
     margin: 0;
     font-size: 1.75rem;
+
     @include respond(xl) {
         font-size: 2rem;
     }
@@ -94,11 +95,11 @@
     gap: 8px;
 }
 
-.article-time,
+.article-info,
 .article-translations {
     display: flex;
     color: var(--card-text-color-tertiary);
-    gap: 15px;
+    gap: 16px;
 
     svg {
         vertical-align: middle;
@@ -114,19 +115,19 @@
         color: var(--card-text-color-tertiary);
     }
 
-    & > div {
+    &>div {
         display: inline-flex;
         align-items: center;
-        gap: 15px;
+        gap: 8px;
     }
 }
 
-.article-time {
+.article-info {
     flex-wrap: wrap;
 }
 
 .article-translations {
-    & > div {
+    &>div {
         flex-wrap: wrap;
     }
 }
@@ -165,7 +166,7 @@
     }
 
     article {
-        & > a {
+        &>a {
             display: flex;
             align-items: center;
             padding: var(--small-card-padding);
@@ -200,7 +201,7 @@
             }
         }
 
-        .article-time {
+        .article-info {
             font-size: 1.4rem;
         }
 
