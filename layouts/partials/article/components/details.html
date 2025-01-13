@@ -18,8 +18,8 @@
     {{ $showDate := not .Date.IsZero }}
     {{ $showFooter := or $showDate $showReadingTime }}
     {{ if $showFooter }}
-    <footer class="article-info-wrapper">
-        <footer class="article-info">
+    <footer class="article-time-wrapper">
+        <footer class="article-time">
             {{ if $showDate }}
             <div>
                 {{ partial "helper/icon" "date" }}
@@ -51,8 +51,8 @@
 
 
         </footer>
-
-        <footer class="article-info">
+        {{ if (or .Params.categories .Params.tags) }}
+        <footer class="article-time">
             {{ if .Params.categories }}
             {{ range (.GetTerms "categories") }}
 
@@ -78,6 +78,7 @@
             {{ end }}
             {{ end }}
         </footer>
+        {{ end }}
     </footer>
     {{ end }}
 
