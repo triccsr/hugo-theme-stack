@@ -95,6 +95,19 @@
     gap: 8px;
 }
 
+.article-info-wrapper {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-article {
+    .article-info-wrapper {
+        gap: 15px;
+        flex-direction: column;
+    }
+}
+
 .article-info,
 .article-translations {
     display: flex;

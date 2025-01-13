@@ -6,14 +6,14 @@
             </a>
             <footer class="article-info">
                 <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
-                    {{- .Date.Format ("2006-01-02") -}}
+                    {{- .Date.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
                 </time>
 
                 {{ if .Params.categories }}
                 {{ range (.GetTerms "categories") }}
 
                 <a href="{{ .RelPermalink }}">
-                    {{ partial "helper/icon" "categories" }}
+                    {{ partial "helper/icon" "categories-filled" }}
                     {{ .LinkTitle }}
                 </a>
                 {{ end }}
@@ -22,7 +22,7 @@
                 {{ if .Params.tags }}
                 {{ range (.GetTerms "tags") }}
                 <a href="{{ .RelPermalink }}">
-                    {{ partial "helper/icon" "tag" }}
+                    {{ partial "helper/icon" "tag-filled" }}
                     {{ .LinkTitle }}
                 </a>
                 {{ end }}

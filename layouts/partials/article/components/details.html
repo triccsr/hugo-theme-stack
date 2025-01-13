@@ -18,64 +18,66 @@
     {{ $showDate := not .Date.IsZero }}
     {{ $showFooter := or $showDate $showReadingTime }}
     {{ if $showFooter }}
-    <footer class="article-info">
-        {{ if $showDate }}
-        <div>
-            {{ partial "helper/icon" "date" }}
-            <time class="article-time--published">
-                {{- .Date | time.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
-            </time>
-        </div>
-        {{ end }}
+    <footer class="article-info-wrapper">
+        <footer class="article-info">
+            {{ if $showDate }}
+            <div>
+                {{ partial "helper/icon" "date" }}
+                <time class="article-time--published">
+                    {{- .Date | time.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
+                </time>
+            </div>
+            {{ end }}
 
 
-        {{- if ne .Lastmod .Date -}}
-        <div>
-            {{ partial "helper/icon" "edit" }}
-            <time class="article-lastmod">
-                {{- .Lastmod.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
-            </time>
-        </div>
-        {{ end }}
+            {{- if ne .Lastmod .Date -}}
+            <div>
+                {{ partial "helper/icon" "edit" }}
+                <time class="article-lastmod">
+                    {{- .Lastmod.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
+                </time>
+            </div>
+            {{ end }}
 
-        {{ if $showReadingTime }}
-        <div>
-            {{ partial "helper/icon" "clock" }}
-            <time class="article-time--reading">
-                {{ T "article.readingTime" .ReadingTime }}
-            </time>
-        </div>
-        {{ end }}
+            {{ if $showReadingTime }}
+            <div>
+                {{ partial "helper/icon" "clock" }}
+                <time class="article-time--reading">
+                    {{ T "article.readingTime" .ReadingTime }}
+                </time>
+            </div>
+            {{ end }}
 
 
 
-    </footer>
+        </footer>
 
-    <footer class="article-info">
-        {{ if .Params.categories }}
-        {{ range (.GetTerms "categories") }}
+        <footer class="article-info">
+            {{ if .Params.categories }}
+            {{ range (.GetTerms "categories") }}
 
-        <a class="article-class-category" href="{{ .RelPermalink }}" {{ with .Params.style
+            <a class="article-class-category" href="{{ .RelPermalink }}" {{ with .Params.style
             }}style="background-color: {{ .background }}; color: {{ .color }};" {{ end }}>
-            {{ partial "helper/icon" "categories" }}
-            {{ .LinkTitle }}
-        </a>
+                {{ partial "helper/icon" "categories-filled" }}
+                {{ .LinkTitle }}
+            </a>
 
-        {{ end }}
-        {{ end }}
+            {{ end }}
+            {{ end }}
 
-        {{ if .Params.tags }}
-        {{ range (.GetTerms "tags") }}
+            {{ if .Params.tags }}
+            {{ range (.GetTerms "tags") }}
 
 
-        <a class="article-class-tag" href="{{ .RelPermalink }}" {{ with .Params.style
+            <a class="article-class-tag" href="{{ .RelPermalink }}" {{ with .Params.style
             }}style="background-color: {{ .background }}; color: {{ .color }};" {{ end }}>
-            {{ partial "helper/icon" "tag" }}
-            {{ .LinkTitle }}
-        </a>
+                {{ partial "helper/icon" "tag-filled" }}
+                {{ .LinkTitle }}
+            </a>
 
-        {{ end }}
-        {{ end }}
+            {{ end }}
+            {{ end }}
+        </footer>
     </footer>
     {{ end }}
 
