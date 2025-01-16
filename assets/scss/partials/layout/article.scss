@@ -336,7 +336,7 @@
     .highlight {
         background-color: var(--pre-background-color);
         padding: var(--card-padding);
-        border-radius: var(--card-border-radius);
+        // border-radius: var(--card-border-radius);
         position: relative;
 
         &:hover {
@@ -440,16 +440,16 @@
     /// Negative margins
     // blockquote,
     // figure,
-    // .highlight,
+    .highlight,
     // pre,
     // .gallery,
     // .video-wrapper,
-    // .table-wrapper,
-    // .s_video_simple {
-    //     margin-left: calc((var(--card-padding)) * -1);
-    //     margin-right: calc((var(--card-padding)) * -1);
-    //     width: calc(100% + var(--card-padding) * 2);
-    // }
+    .table-wrapper,
+    .s_video_simple {
+        margin-left: calc((var(--card-padding)) * -1);
+        margin-right: calc((var(--card-padding)) * -1);
+        width: calc(100% + var(--card-padding) * 2);
+    }
 
     /// Make long KaTeX equations scrollable in the x-axis
     .katex-display>.katex {

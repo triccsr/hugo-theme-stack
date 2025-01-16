@@ -1,13 +1,13 @@
 /* Background */
 .bg {
-    color: #4c4f69;
-    background-color: #f5f5f5;
+    color: #323446;
+    background-color: #eaeaea;
 }
 
 /* PreWrapper */
 .chroma {
-    color: #4c4f69;
-    background-color: #f5f5f5;
+    color: #323446;
+    background-color: #eaeaea;
 }
 
 /* Other */
@@ -140,7 +140,7 @@
 /* NameDecorator */
 .chroma .nd {
     color: #1e66f5;
-    font-weight: bold
+    // font-weight: bold
 }
 
 /* NameEntity */
@@ -244,7 +244,7 @@
 
 /* LiteralStringDoc */
 .chroma .sd {
-    color: #7f828d
+    color: #666666
 }
 
 /* LiteralStringDouble */
@@ -259,7 +259,7 @@
 
 /* LiteralStringHeredoc */
 .chroma .sh {
-    color: #7f828d
+    color: #666666
 }
 
 /* LiteralStringInterpol */
@@ -324,14 +324,14 @@
 
 /* Operator */
 .chroma .o {
-    color: #04a5e5;
-    font-weight: bold
+    color: #0067c1;
+    // font-weight: bold
 }
 
 /* OperatorWord */
 .chroma .ow {
-    color: #04a5e5;
-    font-weight: bold
+    color: #0067c1;
+    // font-weight: bold
 }
 
 /* Punctuation */
@@ -339,38 +339,38 @@
 
 /* Comment */
 .chroma .c {
-    color: #7f828d;
+    color: #666666;
 }
 
 /* CommentHashbang */
 .chroma .ch {
-    color: #7f828d;
+    color: #666666;
 }
 
 /* CommentMultiline */
 .chroma .cm {
-    color: #7f828d;
+    color: #666666;
 }
 
 /* CommentSingle */
 .chroma .c1 {
-    color: #7f828d;
+    color: #666666;
 }
 
 /* CommentSpecial */
 .chroma .cs {
-    color: #7f828d;
+    color: #666666;
 }
 
 /* CommentPreproc */
 .chroma .cp {
-    color: #7f828d;
+    color: #666666;
 }
 
 /* CommentPreprocFile */
 .chroma .cpf {
-    color: #7f828d;
-    font-weight: bold;
+    color: #666666;
+    // font-weight: bold;
 }
 
 /* Generic */
@@ -395,7 +395,7 @@
 /* GenericHeading */
 .chroma .gh {
     color: #cc4400;
-    font-weight: bold
+    // font-weight: bold
 }
 
 /* GenericInserted */
@@ -412,13 +412,13 @@
 
 /* GenericStrong */
 .chroma .gs {
-    font-weight: bold
+    // font-weight: bold
 }
 
 /* GenericSubheading */
 .chroma .gu {
     color: #cc4400;
-    font-weight: bold
+    // font-weight: bold
 }
 
 /* GenericTraceback */
