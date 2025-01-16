@@ -1,9 +1,11 @@
 <article>
     <div class="article-wrapper">
         <div class="article-details">
-            <a class="article-title" href="{{ .RelPermalink }}">
-                {{- .Title -}}
-            </a>
+            <h2 class="article-title">
+                <a href="{{ .RelPermalink }}">
+                    {{- .Title -}}
+                </a>
+            </h2>
             <footer class="article-time">
                 <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
                     {{- .Date.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}
@@ -12,7 +14,8 @@
                 {{ if .Params.categories }}
                 {{ range (.GetTerms "categories") }}
 
-                <a href="{{ .RelPermalink }}">
+                <a class="article-class-category" href="{{ .RelPermalink }}" {{ with .Params.style
+                                        }}style="background-color: {{ .background }}; color: {{ .color }};" {{ end }}>
                     {{ partial "helper/icon" "categories-filled" }}
                     {{ .LinkTitle }}
                 </a>
@@ -21,7 +24,8 @@
 
                 {{ if .Params.tags }}
                 {{ range (.GetTerms "tags") }}
-                <a href="{{ .RelPermalink }}">
+                <a class="article-class-tag" href="{{ .RelPermalink }}" {{ with .Params.style
+                                        }}style="background-color: {{ .background }}; color: {{ .color }};" {{ end }}>
                     {{ partial "helper/icon" "tag-filled" }}
                     {{ .LinkTitle }}
                 </a>
@@ -40,7 +44,7 @@
             {{- $Height := $image.resource.Height -}}
 
             {{- if (default true .Page.Site.Params.imageProcessing.cover.enabled) -}}
-            {{- $thumbnail := $image.resource.Fill "120x120" -}}
+            {{- $thumbnail := $image.resource.Fill "160x120" -}}
             {{- $Permalink = $thumbnail.RelPermalink -}}
             {{- $Width = $thumbnail.Width -}}
             {{- $Height = $thumbnail.Height -}}

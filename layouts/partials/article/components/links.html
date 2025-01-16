@@ -1,10 +1,13 @@
 <div class="article-list--compact links">
     {{ range $i, $link := .Params.links }}
     <article>
-        <a href="{{ $link.website }}" target="_blank" rel="noopener">
+        <div class="article-wrapper">
+
             <div class="article-details">
                 <h2 class="article-title">
-                    {{- $link.title -}}
+                    <a href="{{ $link.website }}" target="_blank" rel="noopener">
+                        {{- $link.title -}}
+                    </a>
                 </h2>
                 <footer class="article-time">
                     {{ with $link.description }}
@@ -24,7 +27,8 @@
                 <img src="{{ $permalink }}" loading="lazy">
             </div>
             {{ end }}
-        </a>
+
+        </div>
     </article>
     {{ end }}
 </div>
