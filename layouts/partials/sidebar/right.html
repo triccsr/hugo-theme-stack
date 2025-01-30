@@ -1,16 +1,24 @@
 {{- $scope := default "homepage" .Scope -}}
 {{- $context := .Context -}}
 {{- with (index .Context.Site.Params.widgets $scope) -}}
-    <aside class="sidebar right-sidebar sticky">
-        {{ range $widget := . }}
-            {{ if templates.Exists (printf "partials/widget/%s.html" .type) }}
-                <!-- Ensure that the `params` is not nil -->
-                {{- $params := default dict .params -}}
+<aside class="sidebar right-sidebar sticky" id="right-menu">
+    <!-- <ol class="menu" id="main-right-menu"> -->
+    {{ range $widget := . }}
+    {{ if templates.Exists (printf "partials/widget/%s.html" .type) }}
+    <!-- Ensure that the `params` is not nil -->
+    {{- $params := default dict .params -}}
 
-                {{ partial (printf "widget/%s" .type) (dict "Context" $context "Params" $params) }}
-            {{ else }}
-                {{ warnf "Widget %s not found" .type }}
-            {{ end }}
-        {{ end }}
-    </aside>
+    {{ partial (printf "widget/%s" .type) (dict "Context" $context "Params" $params) }}
+    {{ else }}
+    {{ warnf "Widget %s not found" .type }}
+    {{ end }}
+    {{ end }}
+    <!-- </ol> -->
+
+</aside>
+<button class="hamburger hamburger--spin" type="button" id="toggle-right-menu" aria-label="{{ T `toggleMenu` }}">
+    <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+    </span>
+</button>
 {{ end }}
