@@ -70,7 +70,7 @@ let slideToggle = (target, duration = 500) => {
     }
 }
 
-let slideRight = (target, duration = 500) => {
+let slideRight = (target: HTMLElement, duration = 500) => {
     target.classList.add('transiting');
     target.style.transitionProperty = 'width, margin, padding';
     target.style.transitionDuration = duration + 'ms';
@@ -101,7 +101,7 @@ let slideRight = (target, duration = 500) => {
     }, duration);
 }
 
-let slideLeft = (target, duration = 500) => {
+let slideLeft = (target: HTMLElement, duration = 500) => {
     target.classList.add('transiting');
     target.style.removeProperty('display');
 
@@ -114,6 +114,7 @@ let slideLeft = (target, duration = 500) => {
     target.style.paddingRight = "0";
     target.style.marginLeft = "0";
     target.style.marginRight = "0";
+    target.style.flexShrink = "0";
     target.offsetWidth;
     ///target.style.boxSizing = 'border-box';
     target.style.transitionProperty = "width, margin, padding";
@@ -125,6 +126,7 @@ let slideLeft = (target, duration = 500) => {
     target.style.removeProperty('margin-right');
     window.setTimeout(() => {
         target.style.removeProperty('width');
+        target.style.removeProperty('flex-shrink');
         target.style.removeProperty('overflow');
         target.style.removeProperty('transition-duration');
         target.style.removeProperty('transition-property');
@@ -155,7 +157,7 @@ export default function () {
         toggleRightMenu.addEventListener('click', () => {
             if (document.getElementById('right-menu').classList.contains('transiting')) return;
             document.body.classList.toggle('show-right-menu');
-            slideToggle(document.getElementsByClassName('right-sidebar')[0], 300);
+            slideToggleRightMenu(document.getElementById('right-menu'), 300);
             toggleRightMenu.classList.toggle('is-active');
         });
     }
