@@ -70,75 +70,20 @@ let slideToggle = (target, duration = 500) => {
     }
 }
 
-let slideRight = (target: HTMLElement, duration = 500) => {
-    target.classList.add('transiting');
-    target.style.transitionProperty = 'width, margin, padding';
-    target.style.transitionDuration = duration + 'ms';
-    ///target.style.boxSizing = 'border-box';
 
-
-    target.style.width = target.offsetWidth + 'px';
-    target.offsetWidth;
-    target.style.width = "0";
-    target.style.paddingLeft = "0";
-    target.style.paddingRight = "0";
-    target.style.marginLeft = "0";
-    target.style.marginRight = "0";
-    target.style.overflow = 'hidden';
-
-    window.setTimeout(() => {
-        // target.style.display = 'none';
-        target.classList.remove('show')
-        target.style.removeProperty('width');
-        target.style.removeProperty('padding-left');
-        target.style.removeProperty('padding-right');
-        target.style.removeProperty('margin-left');
-        target.style.removeProperty('margin-right');
-        target.style.removeProperty('overflow');
-        target.style.removeProperty('transition-duration');
-        target.style.removeProperty('transition-property');
-        target.classList.remove('transiting');
-    }, duration);
+let slideLeft = (target: HTMLElement) => {
+    target.classList.remove('show');
 }
 
-let slideLeft = (target: HTMLElement, duration = 500) => {
-    target.classList.add('transiting');
-    target.style.removeProperty('display');
-
+let slideRight = (target: HTMLElement) => {
     target.classList.add('show');
-
-    let width = target.offsetWidth;
-    target.style.overflow = 'hidden';
-    target.style.width = "0";
-    target.style.paddingLeft = "0";
-    target.style.paddingRight = "0";
-    target.style.marginLeft = "0";
-    target.style.marginRight = "0";
-    target.style.flexShrink = "0";
-    target.offsetWidth;
-    ///target.style.boxSizing = 'border-box';
-    target.style.transitionProperty = "width, margin, padding";
-    target.style.transitionDuration = duration + 'ms';
-    target.style.width = width + 'px';
-    target.style.removeProperty('padding-left');
-    target.style.removeProperty('padding-right');
-    target.style.removeProperty('margin-left');
-    target.style.removeProperty('margin-right');
-    window.setTimeout(() => {
-        target.style.removeProperty('width');
-        target.style.removeProperty('flex-shrink');
-        target.style.removeProperty('overflow');
-        target.style.removeProperty('transition-duration');
-        target.style.removeProperty('transition-property');
-        target.classList.remove('transiting');
-    }, duration);
 }
 
 let slideToggleRightMenu = (target, duration = 500) => {
     if (window.getComputedStyle(target).display === 'none') {
-        return slideLeft(target, duration);
+        return slideRight(target);
     } else {
-        return slideRight(target, duration);
+        return slideLeft(target);
     }
 }
 
