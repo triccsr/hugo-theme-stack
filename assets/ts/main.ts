@@ -95,11 +95,14 @@ let Stack = {
     }
 }
 
-window.addEventListener('load', () => {
-    setTimeout(function () {
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
         Stack.init();
-    }, 0);
-})
+    });
+}
+else {
+    Stack.init();
+}
 
 declare global {
     interface Window {

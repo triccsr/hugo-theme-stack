@@ -1,15 +1,15 @@
 declare global {
     interface Window {
         PhotoSwipe: any;
-        PhotoSwipeUI_Default: any
     }
 }
 
 interface PhotoSwipeItem {
-    w: number;
-    h: number;
+    width: number;
+    height: number;
     src: string;
     msrc: string;
+    element: HTMLElement;
     title?: string;
     el: HTMLElement;
 }
@@ -19,11 +19,6 @@ class StackGallery {
     private items: PhotoSwipeItem[] = [];
 
     constructor(container: HTMLElement, galleryUID = 1) {
-        if (window.PhotoSwipe == undefined || window.PhotoSwipeUI_Default == undefined) {
-            console.error("PhotoSwipe lib not loaded.");
-            return;
-        }
-
         this.galleryUID = galleryUID;
 
         StackGallery.createGallery(container);
@@ -41,10 +36,11 @@ class StackGallery {
                 img = el.querySelector('img');
 
             let aux: PhotoSwipeItem = {
-                w: parseInt(img.getAttribute('width')),
-                h: parseInt(img.getAttribute('height')),
+                width: parseInt(img.getAttribute('width')),
+                height: parseInt(img.getAttribute('height')),
                 src: img.src,
                 msrc: img.getAttribute('data-thumb') || img.src,
+                element: el.querySelector('a') || img,
                 el: el
             }
 
@@ -155,20 +151,43 @@ class StackGallery {
     }
 
     public open(index: number) {
-        const pswp = document.querySelector('.pswp') as HTMLDivElement;
-        const ps = new window.PhotoSwipe(pswp, window.PhotoSwipeUI_Default, this.items, {
-            index: index,
-            galleryUID: this.galleryUID,
-            getThumbBoundsFn: (index) => {
-                const thumbnail = this.items[index].el.getElementsByTagName('img')[0],
-                    pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-                    rect = thumbnail.getBoundingClientRect();
+        if (window.PhotoSwipe == undefined) {
+            console.error("PhotoSwipe lib not loaded.");
+            return false;
+        }
 
-                return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
-            }
+        const ps = new window.PhotoSwipe({
+            dataSource: this.items,
+            index: index,
+            galleryUID: this.galleryUID
+        });
+
+        ps.on('uiRegister', () => {
+            ps.ui.registerElement({
+                name: 'custom-caption',
+                order: 9,
+                isButton: false,
+                appendTo: 'root',
+                html: '',
+                onInit: (caption, pswp) => {
+                    const updateCaption = () => {
+                        const title = this.items[pswp.currIndex]?.title || '';
+                        caption.innerHTML = title;
+                        caption.hidden = title.length === 0;
+                    };
+
+                    pswp.on('change', updateCaption);
+                    updateCaption();
+                }
+            });
+        });
+
+        ps.addFilter('thumbEl', (thumbEl, itemData, index) => {
+            return this.items[index]?.el.getElementsByTagName('img')[0] || thumbEl;
         });
 
         ps.init();
+        return true;
     }
 
     private bindClick() {
@@ -176,8 +195,9 @@ class StackGallery {
             const a = item.el.querySelector('a');
 
             a.addEventListener('click', (e) => {
-                e.preventDefault();
-                this.open(index);
+                if (this.open(index)) {
+                    e.preventDefault();
+                }
             })
         }
     }
