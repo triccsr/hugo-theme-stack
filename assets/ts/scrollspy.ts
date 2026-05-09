@@ -43,7 +43,12 @@ function buildIdToNavigationElementMap(navigation: NodeListOf<Element>): IdToEle
 
 function computeOffsets(headers: NodeListOf<Element>) {
     let sectionsOffsets = [];
-    headers.forEach((header: HTMLElement) => { sectionsOffsets.push({ id: header.id, offset: header.offsetTop }) });
+    headers.forEach((header: HTMLElement) => {
+        sectionsOffsets.push({
+            id: header.id,
+            offset: header.getBoundingClientRect().top + window.scrollY
+        });
+    });
     sectionsOffsets.sort((a, b) => a.offset - b.offset);
     return sectionsOffsets;
 }
@@ -80,7 +85,9 @@ function setupScrollspy() {
     let idToNavigationElement: IdToElementMap = buildIdToNavigationElementMap(navigation);
 
     function scrollHandler() {
-        let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+        sectionsOffsets = computeOffsets(headers);
+
+        let scrollPosition = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
 
         let newActiveSection: HTMLElement | undefined;
 

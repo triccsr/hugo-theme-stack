@@ -143,7 +143,7 @@
     position: fixed;
     right: 15px;
     bottom: 15px;
-    z-index: 2;
+    z-index: 4;
     cursor: pointer;
 
     [dir="rtl"] & {
@@ -162,6 +162,8 @@
         }
     }
 
+    display: flex;
+
     @include respond(lg) {
         display: none !important;
     }
@@ -169,20 +171,74 @@
     @include respond(md) {
         display: flex;
     }
-
-
-
-    display: none;
 }
 
 /* Menu style */
 #right-menu {
     display: none;
+    position: fixed;
+    left: 15px;
+    right: 15px;
+    bottom: 70px;
+    width: auto;
+    z-index: 3;
+    max-height: calc(100vh - 100px);
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+
+    .widget,
+    .widget--toc {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .widget--toc {
+        border-radius: var(--card-border-radius);
+    }
+
+    #TableOfContents {
+        max-height: calc(100vh - 100px);
+    }
+
+    &::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background: rgba(0, 0, 0, 0.5);
+    }
     // padding: 0;
     // margin: 0;
 
     &.show {
         display: flex;
+    }
+
+    @include respond(md) {
+        position: sticky;
+        top: 0;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        z-index: auto;
+        max-height: none;
+        border-radius: 0;
+        overflow: visible;
+
+        .widget,
+        .widget--toc {
+            width: auto;
+            min-width: 0;
+        }
+
+        #TableOfContents {
+            max-height: 75vh;
+        }
+
+        &::before {
+            display: none;
+        }
     }
 
     @include respond(lg) {

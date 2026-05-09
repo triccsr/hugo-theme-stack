@@ -99,11 +99,22 @@ export default function () {
     }
     const toggleRightMenu = document.getElementById('toggle-right-menu');
     if (toggleRightMenu) {
+        const rightMenu = document.getElementById('right-menu');
+
         toggleRightMenu.addEventListener('click', () => {
-            if (document.getElementById('right-menu').classList.contains('transiting')) return;
+            if (rightMenu.classList.contains('transiting')) return;
             document.body.classList.toggle('show-right-menu');
-            slideToggleRightMenu(document.getElementById('right-menu'), 300);
+            slideToggleRightMenu(rightMenu, 300);
             toggleRightMenu.classList.toggle('is-active');
+        });
+
+        const mediumViewport = window.matchMedia('(min-width: 768px)');
+        mediumViewport.addEventListener('change', (e) => {
+            if (e.matches) return;
+
+            document.body.classList.remove('show-right-menu');
+            rightMenu.classList.remove('show');
+            toggleRightMenu.classList.remove('is-active');
         });
     }
 }
