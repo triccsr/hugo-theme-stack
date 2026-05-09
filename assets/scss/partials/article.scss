@@ -20,7 +20,6 @@
 
         &.has-image {
             --article-list-image-overlay: var(--card-background);
-            --article-list-image-text-color: var(--card-text-color-main);
 
             .article-header {
                 position: relative;
@@ -33,9 +32,8 @@
                     inset: 0;
                     z-index: 1;
                     background: linear-gradient(0deg,
-                            var(--article-list-image-overlay) 0%,
-                            color-mix(in srgb, var(--article-list-image-overlay) 90%, transparent) 20%,
-                            color-mix(in srgb, var(--article-list-image-overlay) 20%, transparent) 100%);
+                            color-mix(in srgb, var(--article-list-image-overlay) 100%, transparent) 0%,
+                            color-mix(in srgb, var(--article-list-image-overlay) 10%, transparent) 100%);
                 }
             }
 
@@ -55,20 +53,6 @@
                 position: relative;
                 z-index: 2;
                 width: 100%;
-            }
-
-            .article-title a,
-            .article-subtitle,
-            .article-time,
-            .article-time a,
-            .article-translations,
-            .article-translations a {
-                color: var(--article-list-image-text-color);
-            }
-
-            .article-time,
-            .article-translations {
-                opacity: 0.88;
             }
         }
 
@@ -152,7 +136,7 @@
 .article-time,
 .article-translations {
     display: flex;
-    color: var(--card-text-color-tertiary);
+    color: var(--article-header-meta-color);
     gap: 16px;
 
     svg {
@@ -166,7 +150,14 @@
     time,
     a {
         font-size: 1.4rem;
-        color: var(--card-text-color-tertiary);
+    }
+
+    time,
+    .article-time--published,
+    .article-lastmod,
+    .article-time--reading,
+    .article-class-tag {
+        color: var(--article-header-meta-color);
     }
 
     &>div {
